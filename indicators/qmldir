@@ -1,0 +1,23 @@
+# =============================================================================
+#                    INDICATORS MODULE QMLDIR
+# =============================================================================
+#
+# This qmldir registers all indicator components in this folder.
+# Indicators are the small widgets displayed in the main bar.
+#
+# =============================================================================
+
+# Clock/time display widget
+ClockWidget 1.0 ClockWidget.qml
+
+# Workspace indicator dots
+WorkspaceIndicator 1.0 WorkspaceIndicator.qml
+
+# System status icons (volume, wifi, battery)
+SystemIndicators 1.0 SystemIndicators.qml
+
+# System tray item with context menu support
+TrayItem 1.0 TrayItem.qml
+
+# Media player control with cava visualization
+MediaControl 1.0 MediaControl.qml

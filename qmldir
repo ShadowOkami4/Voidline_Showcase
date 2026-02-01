@@ -1,0 +1,110 @@
+# =============================================================================
+#                              QMLDIR FILE
+# =============================================================================
+#
+# FILE: qmldir
+# PURPOSE: Registers QML components so they can be used by name
+#
+# =============================================================================
+#                              OVERVIEW
+# =============================================================================
+#
+# The qmldir file is essential for QML modules. It tells the QML engine:
+#   - Which files are part of this module
+#   - How to refer to each component (by name)
+#   - Which components are singletons
+#
+# Without this file, you would need to import each file individually.
+# With it, you can simply use component names like "Bar" or "Config".
+#
+# =============================================================================
+#                         SYNTAX
+# =============================================================================
+#
+# Regular component:
+#   ComponentName VersionMajor.VersionMinor RelativePath
+#   Example: Bar 1.0 misc/Bar.qml
+#
+# Singleton component:
+#   singleton ComponentName VersionMajor.VersionMinor RelativePath
+#   Example: singleton Config 1.0 misc/Config.qml
+#
+# The version is typically 1.0 for custom components.
+#
+# =============================================================================
+#                         SINGLETONS
+# =============================================================================
+#
+# Singletons are special:
+#   - Only one instance exists in the entire application
+#   - Accessed directly by name: Config.backgroundColor
+#   - No need to instantiate: just use the name
+#   - Must have "pragma Singleton" at top of QML file
+#   - Must be registered as "singleton" in qmldir
+#
+# =============================================================================
+
+# -----------------------------------------------------------------------------
+#                     SINGLETON COMPONENTS
+# -----------------------------------------------------------------------------
+
+# Configuration singleton - colors, sizes, fonts
+# Access: Config.backgroundColor, Config.barHeight, etc.
+singleton Config 1.0 misc/Config.qml
+
+# State management singleton - panel visibility, toggle functions
+# Access: ShellState.launcherVisible, ShellState.toggleLauncher(), etc.
+singleton ShellState 1.0 misc/ShellState.qml
+
+# -----------------------------------------------------------------------------
+#                     MAIN BAR COMPONENT
+# -----------------------------------------------------------------------------
+
+# The floating top bar with auto-hide
+# Created for each screen in shell.qml
+Bar 1.0 misc/Bar.qml
+
+# -----------------------------------------------------------------------------
+#                     PANEL COMPONENTS
+# -----------------------------------------------------------------------------
+
+# App launcher popup with search and grid
+AppLauncher 1.0 panels/AppLauncher.qml
+
+# Network settings popup with WiFi list
+NetworkPanel 1.0 panels/NetworkPanel.qml
+
+# Sound settings popup with volume controls
+SoundPanel 1.0 panels/SoundPanel.qml
+
+# Full DE settings panel with tabs for all settings
+SettingsPanel 1.0 panels/SettingsPanel.qml
+
+# Window overview panel for visual window management
+# Shows all windows across workspaces, drag to move between workspaces
+WindowOverview 1.0 panels/WindowOverview.qml
+
+# Keybinds cheatsheet showing all Hyprland shortcuts
+KeybindsCheatsheet 1.0 panels/KeybindsCheatsheet.qml
+
+# OSD popup for volume and brightness changes
+OSDPopup 1.0 panels/OSDPopup.qml
+
+# Notification daemon popup
+NotificationPopup 1.0 panels/NotificationPopup.qml
+
+# -----------------------------------------------------------------------------
+#                     INDICATOR COMPONENTS
+# -----------------------------------------------------------------------------
+
+# Time display widget
+ClockWidget 1.0 indicators/ClockWidget.qml
+
+# Workspace dots indicator
+WorkspaceIndicator 1.0 indicators/WorkspaceIndicator.qml
+
+# System status icons (volume, wifi, battery)
+SystemIndicators 1.0 indicators/SystemIndicators.qml
+
+# System tray item with context menu support
+TrayItem 1.0 indicators/TrayItem.qml

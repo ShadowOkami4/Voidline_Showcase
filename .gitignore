@@ -1,0 +1,56 @@
+# =============================================================================
+#                           QUICKSHELL GITIGNORE
+# =============================================================================
+
+# User-specific settings (contains personal preferences)
+settings.json
+
+# QML cache files
+*.qmlc
+.qmlls.ini
+qmldir.lock
+
+# Build artifacts
+build/
+*.o
+*.so
+*.a
+
+# IDE/Editor files
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# OS-generated files
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+
+# Log files
+*.log
+
+# Backup files
+*.bak
+*.backup
+*.old
+
+# Python cache (for scripts)
+__pycache__/
+*.py[cod]
+*$py.class
+.Python
+*.pyc
+
+# Node (if any tooling added later)
+node_modules/
+
+# Temporary files
+*.tmp
+*.temp
+.cache/

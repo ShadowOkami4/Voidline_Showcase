@@ -1,0 +1,52 @@
+# =============================================================================
+#                    PANELS MODULE QMLDIR
+# =============================================================================
+#
+# This qmldir registers all panel components in this folder.
+# Panels are the popup windows that appear when clicking bar elements.
+#
+# =============================================================================
+
+# App launcher with search and application grid
+AppLauncher 1.0 AppLauncher.qml
+
+# Network settings panel with WiFi list
+NetworkPanel 1.0 NetworkPanel.qml
+
+# Sound settings panel with volume controls
+SoundPanel 1.0 SoundPanel.qml
+
+# Bluetooth panel with device controls
+BluetoothPanel 1.0 BluetoothPanel.qml
+
+# Action Center - unified panel combining sound, network, bluetooth, and notifications
+ActionCenter 1.0 ActionCenter.qml
+
+# Full DE settings panel with all settings
+SettingsPanel 1.0 SettingsPanel.qml
+
+# Power menu panel with shutdown, restart, etc.
+PowerPanel 1.0 PowerPanel.qml
+
+# Window overview panel for visual window management
+WindowOverview 1.0 WindowOverview.qml
+
+# Media panel with album art and cava visualization
+MediaPanel 1.0 MediaPanel.qml
+# Keybinds cheatsheet showing all Hyprland shortcuts
+KeybindsCheatsheet 1.0 KeybindsCheatsheet.qml
+
+# OSD popup for volume and brightness changes
+OSDPopup 1.0 OSDPopup.qml
+
+# Notification daemon popup
+NotificationPopup 1.0 NotificationPopup.qml
+
+# Lock screen with password authentication
+LockScreen 1.0 LockScreen.qml
+
+# Lock screen context (shared state for authentication)
+LockContext 1.0 LockContext.qml
+
+# Lock screen visual surface
+LockSurface 1.0 LockSurface.qml
