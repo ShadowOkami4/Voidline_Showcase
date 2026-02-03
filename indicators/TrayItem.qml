@@ -83,27 +83,53 @@ Rectangle {
         implicitWidth: 220
         implicitHeight: menuBg.implicitHeight
         
-        visible: trayItem.menuOpen && menuOpener.children.values.length > 0
+        visible: trayItem.menuOpen
         color: "transparent"
+        
+        // Close menu when clicking outside
+        onVisibleChanged: {
+            if (visible) {
+                closeTimer.stop()
+            }
+        }
         
         // Focus grab to close on outside click
         HyprlandFocusGrab {
             active: menuPopup.visible
             windows: [menuPopup, trayItem.parentBar]
-            onCleared: trayItem.menuOpen = false
+            onCleared: {
+                // Small delay to allow click to register
+                closeTimer.start()
+            }
         }
         
+        Timer {
+            id: closeTimer
+            interval: 50
+            onTriggered: trayItem.menuOpen = false
+        }
+
         Rectangle {
             id: menuBg
             
             anchors.fill: parent
             implicitWidth: 220
-            implicitHeight: menuCol.implicitHeight + 16
+            implicitHeight: Math.max(menuCol.implicitHeight + 16, 48)
             
             color: Config.backgroundColor
             border.width: 1
             border.color: Config.borderColor
             radius: Config.smallRadius
+            
+            // Loading state when no menu items yet
+            Text {
+                anchors.centerIn: parent
+                text: "Loading..."
+                font.family: Config.fontFamily
+                font.pixelSize: Config.fontSize
+                color: Config.dimmedColor
+                visible: menuOpener.children.values.length === 0
+            }
             
             Column {
                 id: menuCol
@@ -112,6 +138,7 @@ Rectangle {
                 anchors.top: parent.top
                 anchors.margins: 8
                 spacing: 2
+                visible: menuOpener.children.values.length > 0
                 
                 Repeater {
                     model: menuOpener.children
@@ -204,17 +231,24 @@ Rectangle {
                             id: itemMouse
                             anchors.fill: parent
                             hoverEnabled: true
+                            propagateComposedEvents: false
                             cursorShape: !menuItemDel.modelData.isSeparator && menuItemDel.modelData.enabled 
                                          ? Qt.PointingHandCursor 
                                          : Qt.ArrowCursor
                             
-                            onClicked: {
+                            onClicked: (mouse) => {
+                                mouse.accepted = true
                                 if (!menuItemDel.modelData.isSeparator && 
                                     menuItemDel.modelData.enabled && 
                                     !menuItemDel.modelData.hasChildren) {
                                     menuItemDel.modelData.triggered()
+                                    closeTimer.stop()
                                     trayItem.menuOpen = false
                                 }
+                            }
+                            
+                            onPressed: (mouse) => {
+                                mouse.accepted = true
                             }
                         }
                     }

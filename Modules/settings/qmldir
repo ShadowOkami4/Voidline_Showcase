@@ -1,0 +1,12 @@
+# =============================================================================
+#                    SETTINGS MODULES QMLDIR
+# =============================================================================
+#
+# Quick settings panels that appear from the bar.
+#
+# =============================================================================
+
+BluetoothPanel 1.0 BluetoothPanel.qml
+NetworkPanel 1.0 NetworkPanel.qml
+SettingsPanel 1.0 SettingsPanel.qml
+SoundPanel 1.0 SoundPanel.qml

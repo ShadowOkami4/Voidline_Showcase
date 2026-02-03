@@ -136,10 +136,10 @@ Singleton {
     // Toggled by: Power button in system indicators
     property bool powerMenuVisible: false
     
-    // Window overview visibility
+    // Tab menu visibility (window overview)
     // Toggled by: Super+Tab or overview button
     // Shows all windows across workspaces for visual management
-    property bool windowOverviewOpen: false
+    property bool tabMenuOpen: false
     
     // Keybinds cheatsheet visibility
     // Toggled by: Super+/ or keybinds button
@@ -179,7 +179,7 @@ Singleton {
         bluetoothPanelVisible = false
         settingsPanelVisible = false
         powerMenuVisible = false
-        windowOverviewOpen = false
+        tabMenuOpen = false
         cheatsheetVisible = false
         mediaPanelVisible = false
         actionCenterVisible = false
@@ -192,7 +192,7 @@ Singleton {
         soundPanelVisible = false
         bluetoothPanelVisible = false
         powerMenuVisible = false
-        windowOverviewOpen = false
+        tabMenuOpen = false
         cheatsheetVisible = false
         mediaPanelVisible = false
         actionCenterVisible = false
@@ -299,14 +299,14 @@ Singleton {
     }
     
     /*
-     * Toggle window overview visibility.
+     * Toggle tab menu visibility.
      * Shows all windows across all workspaces for visual management.
      * Allows clicking to focus, middle-click to close, drag to move.
      */
-    function toggleWindowOverview() {
-        let wasVisible = windowOverviewOpen
+    function toggleTabMenu() {
+        let wasVisible = tabMenuOpen
         closePopups()
-        windowOverviewOpen = !wasVisible
+        tabMenuOpen = !wasVisible
     }
     
     /*

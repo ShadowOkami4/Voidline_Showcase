@@ -1,0 +1,14 @@
+# =============================================================================
+#                    ASSETS QMLDIR
+# =============================================================================
+#
+# Reusable UI components.
+#
+# =============================================================================
+
+MarqueeText 1.0 MarqueeText.qml
+MaterialIcon 1.0 MaterialIcon.qml
+StateLayer 1.0 StateLayer.qml
+StyledClippingRect 1.0 StyledClippingRect.qml
+StyledRect 1.0 StyledRect.qml
+StyledText 1.0 StyledText.qml

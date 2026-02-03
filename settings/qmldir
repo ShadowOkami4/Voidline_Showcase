@@ -1,8 +1,0 @@
-module settings
-
-SoundPage 1.0 SoundPage.qml
-BluetoothPage 1.0 BluetoothPage.qml
-NetworkPage 1.0 NetworkPage.qml
-DisplayPage 1.0 DisplayPage.qml
-PersonalizePage 1.0 PersonalizePage.qml
-AboutPage 1.0 AboutPage.qml

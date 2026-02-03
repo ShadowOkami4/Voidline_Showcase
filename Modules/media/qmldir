@@ -1,0 +1,5 @@
+# Media module - media player controls
+MediaPanel 1.0 MediaPanel.qml
+Background 1.0 Background.qml
+Content 1.0 Content.qml
+Wrapper 1.0 Wrapper.qml

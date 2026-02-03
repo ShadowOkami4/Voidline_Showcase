@@ -1,0 +1,14 @@
+# =============================================================================
+#                    HANDLERS QMLDIR
+# =============================================================================
+#
+# Service handler singletons for system integration.
+#
+# =============================================================================
+
+singleton BluetoothHandler 1.0 BluetoothHandler.qml
+singleton DisplayHandler 1.0 DisplayHandler.qml
+singleton NetworkHandler 1.0 NetworkHandler.qml
+singleton NotificationHandler 1.0 NotificationHandler.qml
+singleton SoundHandler 1.0 SoundHandler.qml
+singleton SystemInfoHandler 1.0 SystemInfoHandler.qml

@@ -67,10 +67,17 @@
  * │   ├── ShellState.qml <- Global state management
  * │   └── Bar.qml        <- The floating top bar
  * │
- * ├── panels/            <- Popup panels
+ * ├── Modules/           <- Shell modules (popups, overlays)
  * │   ├── AppLauncher.qml    <- Application launcher
- * │   ├── NetworkPanel.qml   <- WiFi settings
- * │   └── SoundPanel.qml     <- Volume controls
+ * │   ├── MediaPanel.qml     <- Media controls
+ * │   ├── Lock/              <- Lock screen components
+ * │   └── settings/          <- Quick settings panels
+ * │       ├── NetworkPanel.qml
+ * │       ├── SoundPanel.qml
+ * │       └── BluetoothPanel.qml
+ * │
+ * ├── Apps/              <- Full applications
+ * │   └── Settings/      <- Settings app pages
  * │
  * └── indicators/        <- Bar widgets
  *     ├── ClockWidget.qml       <- Time display
@@ -106,11 +113,17 @@ import Quickshell.Io          // For Process
 import QtQuick
 
 // Import our custom components from the misc folder
-// This gives us access to Bar, Config, and ShellState
+// This gives us access to Config, and ShellState
 import "misc"
 
-// Import panels for the standalone Settings window
-import "panels"
+// Import handlers - centralized system management
+import "Handlers"
+
+// Import modules for popups, lock screen, etc.
+import "Modules"
+import "Modules/Bar"
+import "Modules/Lock"
+import "Modules/settings"
 
 /*
  * ============================================================================
@@ -154,7 +167,7 @@ Scope {
             }
         }
     }
-    
+     
     Timer {
         id: restartTimer
         interval: 5000
@@ -166,7 +179,7 @@ Scope {
      *                     GLOBAL KEYBOARD SHORTCUTS
      * ========================================================================
      * 
-     * GlobalShortcut registers a global keybinding with Hyprland.
+     * GlobalShortcut registers a global keybinding with Hyprland.s 
      * 
      * Properties:
      *   - name: Identifier used in Hyprland bind (quickshell:NAME)
@@ -197,9 +210,9 @@ Scope {
     
     GlobalShortcut {
         name: "toggleOverview"
-        description: "Toggle Window Overview"
+        description: "Toggle Tab Menu"
         
-        onPressed: ShellState.toggleWindowOverview()
+        onPressed: ShellState.toggleTabMenu()
     }
     
     GlobalShortcut { 
@@ -312,23 +325,6 @@ Scope {
     
     /*
      * ========================================================================
-     *                     MEDIA PANEL (Celestia Style)
-     * ========================================================================
-     * 
-     * Uses PanelWindow with layer shell, not PopupWindow.
-     * Creates reverse corners that connect to the bar.
-     */
-    Variants {
-        model: Quickshell.screens
-        
-        MediaPanel {
-            required property var modelData
-            screen: modelData
-        }
-    }
-    
-    /*
-     * ========================================================================
      *                     SETTINGS WINDOW
      * ========================================================================
      * 
@@ -351,7 +347,7 @@ Scope {
     LockScreen {}
     
     /*
-     * NOTE: WindowOverview and MediaPanel are now created inside Bar.qml,
+     * NOTE: TabMenu and MediaPanel are now created inside Bar.qml,
      * just like AppLauncher, NetworkPanel, etc. This allows them to anchor
      * properly to the bar on each screen.
      * 

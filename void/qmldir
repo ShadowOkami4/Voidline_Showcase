@@ -1,4 +1,0 @@
-singleton Config 1.0 Core/Config.qml
-singleton ShellState 1.0 Core/ShellState.qml
-Bar 1.0 Modules/Bar/Bar.qml
-ActionCenter 1.0 Modules/Bar/Widgets/ActionCenter.qml

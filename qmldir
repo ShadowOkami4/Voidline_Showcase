@@ -6,105 +6,96 @@
 # PURPOSE: Registers QML components so they can be used by name
 #
 # =============================================================================
-#                              OVERVIEW
-# =============================================================================
-#
-# The qmldir file is essential for QML modules. It tells the QML engine:
-#   - Which files are part of this module
-#   - How to refer to each component (by name)
-#   - Which components are singletons
-#
-# Without this file, you would need to import each file individually.
-# With it, you can simply use component names like "Bar" or "Config".
-#
-# =============================================================================
-#                         SYNTAX
-# =============================================================================
-#
-# Regular component:
-#   ComponentName VersionMajor.VersionMinor RelativePath
-#   Example: Bar 1.0 misc/Bar.qml
-#
-# Singleton component:
-#   singleton ComponentName VersionMajor.VersionMinor RelativePath
-#   Example: singleton Config 1.0 misc/Config.qml
-#
-# The version is typically 1.0 for custom components.
-#
-# =============================================================================
-#                         SINGLETONS
-# =============================================================================
-#
-# Singletons are special:
-#   - Only one instance exists in the entire application
-#   - Accessed directly by name: Config.backgroundColor
-#   - No need to instantiate: just use the name
-#   - Must have "pragma Singleton" at top of QML file
-#   - Must be registered as "singleton" in qmldir
-#
-# =============================================================================
 
 # -----------------------------------------------------------------------------
 #                     SINGLETON COMPONENTS
 # -----------------------------------------------------------------------------
 
 # Configuration singleton - colors, sizes, fonts
-# Access: Config.backgroundColor, Config.barHeight, etc.
 singleton Config 1.0 misc/Config.qml
 
 # State management singleton - panel visibility, toggle functions
-# Access: ShellState.launcherVisible, ShellState.toggleLauncher(), etc.
 singleton ShellState 1.0 misc/ShellState.qml
+
+# Color scheme singleton - Material You dynamic colors
+singleton ColorScheme 1.0 misc/ColorScheme.qml
+
+# Hyprland config singleton
+singleton HyprlandConfig 1.0 misc/HyprlandConfig.qml
+
+# Wallpaper watcher singleton
+singleton WallpaperWatcher 1.0 misc/WallpaperWatcher.qml
+
+# -----------------------------------------------------------------------------
+#                     HANDLER SINGLETONS
+# -----------------------------------------------------------------------------
+
+singleton SoundHandler 1.0 Handlers/SoundHandler.qml
+singleton NetworkHandler 1.0 Handlers/NetworkHandler.qml
+singleton BluetoothHandler 1.0 Handlers/BluetoothHandler.qml
+singleton DisplayHandler 1.0 Handlers/DisplayHandler.qml
+singleton SystemInfoHandler 1.0 Handlers/SystemInfoHandler.qml
+singleton NotificationHandler 1.0 Handlers/NotificationHandler.qml
 
 # -----------------------------------------------------------------------------
 #                     MAIN BAR COMPONENT
 # -----------------------------------------------------------------------------
 
-# The floating top bar with auto-hide
-# Created for each screen in shell.qml
-Bar 1.0 misc/Bar.qml
+Bar 1.0 Modules/Bar/Bar.qml
 
 # -----------------------------------------------------------------------------
-#                     PANEL COMPONENTS
+#                     MODULE COMPONENTS
 # -----------------------------------------------------------------------------
 
-# App launcher popup with search and grid
-AppLauncher 1.0 panels/AppLauncher.qml
+AppLauncher 1.0 Modules/AppLauncher.qml
+ActionCenter 1.0 Modules/ActionCenter.qml
+TabMenu 1.0 Modules/TabMenu.qml
+KeybindsCheatsheet 1.0 Modules/KeybindsCheatsheet.qml
+OSDPopup 1.0 Modules/popup/OSDPopup.qml
+NotificationPopup 1.0 Modules/popup/NotificationPopup.qml
+MediaPanel 1.0 Modules/media/MediaPanel.qml
+PowerMenu 1.0 Modules/PowerMenu.qml
 
-# Network settings popup with WiFi list
-NetworkPanel 1.0 panels/NetworkPanel.qml
+# -----------------------------------------------------------------------------
+#                     SETTINGS MODULES
+# -----------------------------------------------------------------------------
 
-# Sound settings popup with volume controls
-SoundPanel 1.0 panels/SoundPanel.qml
+NetworkPanel 1.0 Modules/settings/NetworkPanel.qml
+SoundPanel 1.0 Modules/settings/SoundPanel.qml
+SettingsPanel 1.0 Modules/settings/SettingsPanel.qml
+BluetoothPanel 1.0 Modules/settings/BluetoothPanel.qml
 
-# Full DE settings panel with tabs for all settings
-SettingsPanel 1.0 panels/SettingsPanel.qml
+# -----------------------------------------------------------------------------
+#                     LOCK SCREEN COMPONENTS
+# -----------------------------------------------------------------------------
 
-# Window overview panel for visual window management
-# Shows all windows across workspaces, drag to move between workspaces
-WindowOverview 1.0 panels/WindowOverview.qml
-
-# Keybinds cheatsheet showing all Hyprland shortcuts
-KeybindsCheatsheet 1.0 panels/KeybindsCheatsheet.qml
-
-# OSD popup for volume and brightness changes
-OSDPopup 1.0 panels/OSDPopup.qml
-
-# Notification daemon popup
-NotificationPopup 1.0 panels/NotificationPopup.qml
+LockScreen 1.0 Modules/Lock/LockScreen.qml
+LockContext 1.0 Modules/Lock/LockContext.qml
 
 # -----------------------------------------------------------------------------
 #                     INDICATOR COMPONENTS
 # -----------------------------------------------------------------------------
 
-# Time display widget
 ClockWidget 1.0 indicators/ClockWidget.qml
-
-# Workspace dots indicator
 WorkspaceIndicator 1.0 indicators/WorkspaceIndicator.qml
-
-# System status icons (volume, wifi, battery)
 SystemIndicators 1.0 indicators/SystemIndicators.qml
-
-# System tray item with context menu support
 TrayItem 1.0 indicators/TrayItem.qml
+
+# -----------------------------------------------------------------------------
+#                     MISC COMPONENTS
+# -----------------------------------------------------------------------------
+
+Wallpaper 1.0 misc/Wallpaper.qml
+Anim 1.0 misc/Anim.qml
+CAnim 1.0 misc/CAnim.qml
+
+# -----------------------------------------------------------------------------
+#                     ASSET COMPONENTS
+# -----------------------------------------------------------------------------
+
+StyledRect 1.0 Assets/StyledRect.qml
+StyledClippingRect 1.0 Assets/StyledClippingRect.qml
+StyledText 1.0 Assets/StyledText.qml
+MarqueeText 1.0 Assets/MarqueeText.qml
+StateLayer 1.0 Assets/StateLayer.qml
+MaterialIcon 1.0 Assets/MaterialIcon.qml

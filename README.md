@@ -1,84 +1,19 @@
-# Recon Shell 🚀
+# Voidline 🚀
 
 A modern, Material You-inspired desktop shell for Hyprland, built with [Quickshell](https://github.com/quickshell-mirror/quickshell).
+
+> **⚠️ Design Showcase**  
+> This is currently a **design showcase / prototype** that was AI-coded for rapid iteration.  
+> This is **not the final production version** – a proper hand-coded release is planned.
 
 ![License](https://img.shields.io/badge/license-MIT-blue.svg)
 ![Hyprland](https://img.shields.io/badge/Hyprland-compatible-cyan)
 ![QML](https://img.shields.io/badge/Qt-QML-green)
 
-## ✨ Features
+## 👤 Creator
 
-- **🎨 Material You Theming** - Dynamic color extraction from wallpaper
-- **🖥️ Multi-Monitor Support** - Works seamlessly across multiple displays
-- **📱 Action Center** - Quick settings and notifications in one place
-- **🚀 App Launcher** - Fast application search and launch
-- **🔊 Sound Panel** - Volume controls with device switching
-- **📶 Network Panel** - WiFi management and connection status
-- **📲 Bluetooth Panel** - Device pairing and management
-- **⚡ System Indicators** - Battery, volume, network status at a glance
-- **🖼️ Window Overview** - Hyprland workspace overview
-- **⌨️ Keybinds Cheatsheet** - Quick reference for shortcuts
-- **🔒 Lock Screen** - Beautiful lockscreen integration
-- **⚙️ Settings Panel** - Comprehensive system configuration
+**Okami** - Design & Development
 
-## 📁 Project Structure
-
-```
-recon/
-├── shell.qml              # Entry point - loads the shell
-├── qmldir                 # Module registration
-├── settings.json          # User preferences (gitignored)
-│
-├── components/            # Reusable UI components
-│   ├── StyledRect.qml     # Styled rectangle with theming
-│   ├── StyledText.qml     # Themed text component
-│   ├── MaterialIcon.qml   # Material Design icons
-│   ├── MarqueeText.qml    # Scrolling text
-│   └── StateLayer.qml     # Ripple/hover effects
-│
-├── indicators/            # Bar widgets
-│   ├── ClockWidget.qml    # Time and date display
-│   ├── SystemIndicators.qml # Battery, volume, wifi icons
-│   ├── WorkspaceIndicator.qml # Workspace dots/buttons
-│   ├── MediaControl.qml   # Media playback controls
-│   └── TrayItem.qml       # System tray items
-│
-├── misc/                  # Core services and configuration
-│   ├── Config.qml         # Styling configuration (singleton)
-│   ├── ShellState.qml     # Global state management (singleton)
-│   ├── Bar.qml            # Top bar implementation
-│   ├── ColorScheme.qml    # Material You color generation
-│   ├── SoundHandler.qml   # Audio management (singleton)
-│   ├── NetworkHandler.qml # Network management (singleton)
-│   ├── BluetoothHandler.qml # Bluetooth management (singleton)
-│   ├── DisplayHandler.qml # Display management (singleton)
-│   └── Appearance.qml     # Visual appearance settings
-│
-├── panels/                # Popup panels and overlays
-│   ├── ActionCenter.qml   # Quick settings + notifications
-│   ├── AppLauncher.qml    # Application launcher
-│   ├── NetworkPanel.qml   # WiFi configuration
-│   ├── SoundPanel.qml     # Volume controls
-│   ├── BluetoothPanel.qml # Bluetooth devices
-│   ├── PowerPanel.qml     # Power options
-│   ├── MediaPanel.qml     # Media controls
-│   ├── SettingsPanel.qml  # Settings window
-│   ├── LockScreen.qml     # Lock screen
-│   └── WindowOverview.qml # Window overview
-│
-├── settings/              # Settings panel pages
-│   ├── AboutPage.qml
-│   ├── SoundPage.qml
-│   ├── NetworkPage.qml
-│   ├── BluetoothPage.qml
-│   ├── DisplayPage.qml
-│   └── PersonalizePage.qml
-│
-└── scripts/               # Helper scripts
-    ├── colorgen.py        # Color extraction from images
-    ├── bluetooth-agent.py # Bluetooth pairing agent
-    └── apply-colors.sh    # Apply generated colors
-```
 
 ## 🔧 Requirements
 
@@ -93,19 +28,25 @@ recon/
 
 1. **Clone the repository:**
    ```bash
-   git clone https://github.com/YOUR_USERNAME/recon-shell.git ~/.config/quickshell/recon
+   git clone https://github.com/YOUR_USERNAME/voidline.git ~/.config/quickshell/voidline
    ```
 
 2. **Copy the example settings:**
    ```bash
-   cp ~/.config/quickshell/recon/settings.example.json ~/.config/quickshell/recon/settings.json
+   cp ~/.config/quickshell/voidline/settings.example.json ~/.config/quickshell/voidline/settings.json
    ```
 
-3. **Add to Hyprland config:**
+3. **Install Hyprland configuration:**
    ```bash
-   # ~/.config/hypr/hyprland.conf
-   exec-once = quickshell -p ~/.config/quickshell/recon
+   # Backup your existing Hyprland config first!
+   cp -r ~/.config/hypr ~/.config/hypr.backup
+   
+   # Copy Voidline's Hyprland config
+   cp -r ~/.config/quickshell/voidline/hypr/* ~/.config/hypr/
    ```
+   
+   > **Note:** The `hypr/` folder contains pre-configured Hyprland settings that work with Voidline.
+   > Review and customize `hyprland.conf` for your monitor setup before using.
 
 4. **Configure Hyprland keybinds:**
    ```bash

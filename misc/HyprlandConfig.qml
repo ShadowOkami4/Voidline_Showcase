@@ -39,7 +39,7 @@ Singleton {
     id: root
     
     // ========================================================================
-    //                     CONFIG FILE PATH
+    //                     CONFIG FILE PATH 
     // ========================================================================
     
     readonly property string configFilePath: "/home/okami/.config/hypr/config.conf"

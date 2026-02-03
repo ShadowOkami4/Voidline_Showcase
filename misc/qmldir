@@ -2,42 +2,17 @@
 #                    MISC MODULE QMLDIR
 # =============================================================================
 #
-# This qmldir registers the main bar and configuration components.
+# Core configuration and utility components.
 #
 # =============================================================================
 
-# Global configuration singleton - colors, sizes, fonts
 singleton Config 1.0 Config.qml
-
-# Appearance singleton (Celestia Shell style) - rounding, spacing, animations
 singleton Appearance 1.0 Appearance.qml
-
-# Animation helper components (Celestia Shell style)
-Anim 1.0 Anim.qml
-CAnim 1.0 CAnim.qml
-
-# Global state management singleton - panel visibility
 singleton ShellState 1.0 ShellState.qml
-
-# Handler singletons - centralized system management
-singleton SoundHandler 1.0 SoundHandler.qml
-singleton NetworkHandler 1.0 NetworkHandler.qml
-singleton BluetoothHandler 1.0 BluetoothHandler.qml
-singleton DisplayHandler 1.0 DisplayHandler.qml
-singleton SystemInfoHandler 1.0 SystemInfoHandler.qml
-singleton NotificationHandler 1.0 NotificationHandler.qml
-
-# Dynamic color scheme from wallpaper (Material You)
 singleton ColorScheme 1.0 ColorScheme.qml
-
-# Watch wallpaper changes and auto-apply colors
 singleton WallpaperWatcher 1.0 WallpaperWatcher.qml
-
-# Hyprland config file handler - reads/writes ~/.config/hypr/config.conf
 singleton HyprlandConfig 1.0 HyprlandConfig.qml
 
-# The main floating island bar component
-Bar 1.0 Bar.qml
-
-# Desktop wallpaper component
+Anim 1.0 Anim.qml
+CAnim 1.0 CAnim.qml
 Wallpaper 1.0 Wallpaper.qml
