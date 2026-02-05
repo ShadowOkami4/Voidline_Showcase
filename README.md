@@ -28,13 +28,13 @@ A modern, Material You-inspired desktop shell for Hyprland, built with [Quickshe
 1. **Clone the repository:**
 
    ```bash
-   git clone https://github.com/ShadowOkami4/voidline.git ~/.config/quickshell/voidline
+   git clone https://github.com/ShadowOkami4/Voidline_Showcase.git ~/.config/quickshell/Voidline_Showcase
    ```
 
 2. **Copy the example settings:**
 
    ```bash
-   cp ~/.config/quickshell/voidline/settings.example.json ~/.config/quickshell/voidline/settings.json
+   cp ~/.config/quickshell/Voidline_Showcase/settings.example.json ~/.config/quickshell/Voidline_Showcase/settings.json
    ```
 
 3. **Install Hyprland configuration:**
@@ -44,7 +44,7 @@ A modern, Material You-inspired desktop shell for Hyprland, built with [Quickshe
    cp -r ~/.config/hypr ~/.config/hypr.backup
 
    # Copy Voidline's Hyprland config
-   cp -r ~/.config/quickshell/voidline/hypr/* ~/.config/hypr/
+   cp -r ~/.config/quickshell/Voidline_Showcase/hypr/* ~/.config/hypr/
    ```
 
    > **Note:** The `hypr/` folder contains pre-configured Hyprland settings that work with Voidline.
