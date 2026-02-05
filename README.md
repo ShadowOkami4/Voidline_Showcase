@@ -14,7 +14,6 @@ A modern, Material You-inspired desktop shell for Hyprland, built with [Quickshe
 
 **Okami** - Design & Development
 
-
 ## 🔧 Requirements
 
 - [Quickshell](https://github.com/quickshell-mirror/quickshell) - The shell framework
@@ -27,24 +26,27 @@ A modern, Material You-inspired desktop shell for Hyprland, built with [Quickshe
 ## 📦 Installation
 
 1. **Clone the repository:**
+
    ```bash
-   git clone https://github.com/YOUR_USERNAME/voidline.git ~/.config/quickshell/voidline
+   git clone https://github.com/ShadowOkami4/voidline.git ~/.config/quickshell/voidline
    ```
 
 2. **Copy the example settings:**
+
    ```bash
    cp ~/.config/quickshell/voidline/settings.example.json ~/.config/quickshell/voidline/settings.json
    ```
 
 3. **Install Hyprland configuration:**
+
    ```bash
    # Backup your existing Hyprland config first!
    cp -r ~/.config/hypr ~/.config/hypr.backup
-   
+
    # Copy Voidline's Hyprland config
    cp -r ~/.config/quickshell/voidline/hypr/* ~/.config/hypr/
    ```
-   
+
    > **Note:** The `hypr/` folder contains pre-configured Hyprland settings that work with Voidline.
    > Review and customize `hyprland.conf` for your monitor setup before using.
 
@@ -58,20 +60,23 @@ A modern, Material You-inspired desktop shell for Hyprland, built with [Quickshe
 
 ## ⌨️ Keybinds
 
-| Shortcut | Action |
-|----------|--------|
-| `SUPER + Space` | Toggle App Launcher |
-| `SUPER + A` | Toggle Action Center |
-| `SUPER + Shift + S` | Toggle Settings |
-| `SUPER + Tab` | Window Overview |
+| Shortcut            | Action               |
+| ------------------- | -------------------- |
+| `SUPER + Space`     | Toggle App Launcher  |
+| `SUPER + A`         | Toggle Action Center |
+| `SUPER + Shift + S` | Toggle Settings      |
+| `SUPER + Tab`       | Window Overview      |
 
 ## 🎨 Customization
 
 ### Colors
+
 The shell automatically extracts colors from your wallpaper using Material You algorithms. You can also manually set colors in the Settings panel.
 
 ### Configuration
+
 Edit `misc/Config.qml` to customize:
+
 - Bar dimensions and style
 - Panel sizes and radii
 - Animation durations
