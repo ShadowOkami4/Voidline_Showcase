@@ -1,4 +1,4 @@
-# Voidline 🚀
+<img width="4885" height="1724" alt="project_Voidline" src="https://github.com/user-attachments/assets/5674a7c4-357f-4c31-a240-95345bc4e592" />
 
 A modern, Material You-inspired desktop shell for Hyprland, built with [Quickshell](https://github.com/quickshell-mirror/quickshell).
 
